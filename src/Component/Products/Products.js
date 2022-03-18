@@ -9,11 +9,13 @@ const Products = () => {
         .then(data=>setProducts(data))
     },[])
     return (
-        <div style={{padding: 20}} className='container-fluid row row-clos-1 row-cols-md-3'>
-           {
-               products.map(product=><Product products={product} key={product.id} ></Product>) 
-           }
-            
+        <div>
+           
+            <div style={{padding: 20}} className='container-fluid row row-clos-1 row-cols-md-3'>
+                {
+                    products.map(product=><Product products={product} key={product.id} ></Product>) 
+                }       
+            </div>
         </div>
     );
 };

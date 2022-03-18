@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Product.css';
 
-// row row-cols-1 row-cols-md-2
+
 const Product = (props) => {
     console.log(props);
+    const [count, setCount]=useState(0);
+    const cartCount=()=>{
+        const newCount = count + 1;
+        setCount(newCount);
+    }
     return (
         <div>
             <div className="card align-items-center border-0 mb-3 shadow-sm ">
@@ -16,14 +21,19 @@ const Product = (props) => {
                 </div>
                 <div className='card-footer d-flex flex-row justify-content-center bg-transparent border-0'>
                     <div>
-                        <button className='btn btn-success'>Cart</button>
+                        <button onClick={cartCount} className='btn btn-success'>Cart</button>
                     </div>
                     <div>
-                        <button className='btn btn-danger cartBtnSpace'>Remove</button>
+                        <button  className='btn btn-danger cartBtnSpace'>Remove</button>
                     </div>
                     <div>
-                        <button className='btn btn-info'>Details</button>
+                        <button  className='btn btn-info'>Details</button>
                     </div>
+                    {/* 
+                    onClick={this.cartBtn}
+                    onClick={this.removeBtn}
+                    onClick={this.infoBtn}
+                    */}
                 </div>
             </div>
         </div>
