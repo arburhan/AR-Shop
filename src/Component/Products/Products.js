@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import Product from '../Product/Product';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
         fetch('https://fakestoreapi.com/products')
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>setProducts(data))
     },[])
     return (
         <div>
+           {
+               products.map(product=><Product products={product} key={product.id} ></Product>) 
+           }
             
         </div>
     );
