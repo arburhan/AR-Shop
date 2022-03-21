@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import { cartDB } from '../CartDB/CartDB';
 import './Product.css';
 
 
 const Product = (props) => {
-    console.log(props.products);
-    const {image, category, price} = props.products;
+    const {id, image, category, price} = props.products;
     const [count, setCount]=useState(0);
     const cartCount=()=>{
         const newCount = count + 1;
         setCount(newCount);
+        
     }
     console.log(count);
+
+    const infoBtn=(id)=>{
+        cartDB(id);
+        console.log(id);
+    }
     // details
     // const detailsClick=()=>{
     //     // <!-- Vertically centered modal -->
@@ -50,7 +56,7 @@ const Product = (props) => {
                         <button  className='btn btn-danger cartBtnSpace'>Remove</button>
                     </div>
                     <div>
-                        <button  className='btn btn-info'>Details</button>
+                        <button onClick={()=>{infoBtn(id)}} className='btn btn-info'>Details</button>
                     </div>
                     
                     {/* 
