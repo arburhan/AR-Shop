@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { cartDB } from '../CartDB/CartDB';
+import { cartDB, removeDB } from '../CartDB/CartDB';
 import './Product.css';
 
 
@@ -9,14 +9,18 @@ const Product = (props) => {
     const cartCount=()=>{
         const newCount = count + 1;
         setCount(newCount);
-        
     }
-    console.log(count);
-
-    const infoBtn=(id)=>{
+    const cartBtn=(id)=>{
         cartDB(id);
-        console.log(id);
     }
+
+// removie items
+const removeCart=(id)=>{
+    removeDB(id);
+    console.log(id);
+}
+
+
     // details
     // const detailsClick=()=>{
     //     // <!-- Vertically centered modal -->
@@ -50,13 +54,13 @@ const Product = (props) => {
                 </div>
                 <div className='card-footer d-flex flex-row justify-content-center bg-transparent border-0'>
                     <div>
-                        <button onClick={cartCount} className='btn btn-success'>Cart</button>
+                        <button onClick={()=>cartBtn(id)} className='btn btn-success'>Cart</button>
                     </div>
                     <div>
-                        <button  className='btn btn-danger cartBtnSpace'>Remove</button>
+                        <button onClick={()=>removeCart(id)} className='btn btn-danger cartBtnSpace'>Remove</button>
                     </div>
                     <div>
-                        <button onClick={()=>{infoBtn(id)}} className='btn btn-info'>Details</button>
+                        <button  className='btn btn-info'>Details</button>
                     </div>
                     
                     {/* 
