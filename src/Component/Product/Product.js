@@ -4,44 +4,22 @@ import './Product.css';
 
 
 const Product = (props) => {
-    const {id, image, category, price} = props.products;
-    const [count, setCount]=useState(0);
-    const cartCount=()=>{
+    const { id, image, category, price } = props.products;
+    const [count, setCount] = useState(0);
+    const cartCount = () => {
         const newCount = count + 1;
         setCount(newCount);
     }
-    const cartBtn=(id)=>{
+    const cartBtn = (id) => {
         cartDB(id);
     }
 
-// removie items
-const removeCart=(id)=>{
-    removeDB(id);
-    console.log(id);
-}
+    // removie items
+    const removeCart = (id) => {
+        removeDB(id);
+        console.log(id);
+    }
 
-
-    // details
-    // const detailsClick=()=>{
-    //     // <!-- Vertically centered modal -->
-    //     <div className="modal-dialog modal-dialog-centered">
-    //         <div className="modal-dialog">
-    //             <div className="modal-content">
-    //             <div className="modal-header">
-    //                 <h5 className="modal-title">Modal title</h5>
-    //                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    //             </div>
-    //             <div className="modal-body">
-    //                 <p>Modal body text goes here.</p>
-    //             </div>
-    //             <div className="modal-footer">
-    //                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    //                 <button type="button" className="btn btn-primary">Save changes</button>
-    //             </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // }
     return (
         <div>
             <div className="card align-items-center border-0 mb-3 shadow-sm ">
@@ -54,15 +32,15 @@ const removeCart=(id)=>{
                 </div>
                 <div className='card-footer d-flex flex-row justify-content-center bg-transparent border-0'>
                     <div>
-                        <button onClick={()=>cartBtn(id)} className='btn btn-success'>Cart</button>
+                        <button onClick={() => cartBtn(id)} className='btn btn-success'>Cart</button>
                     </div>
                     <div>
-                        <button onClick={()=>removeCart(id)} className='btn btn-danger cartBtnSpace'>Remove</button>
+                        <button onClick={() => removeCart(id)} className='btn btn-danger cartBtnSpace'>Remove</button>
                     </div>
                     <div>
-                        <button  className='btn btn-info'>Details</button>
+                        <button className='btn btn-info'>Details</button>
                     </div>
-                    
+
                     {/* 
                     onClick={this.cartBtn}
                     onClick={this.removeBtn}
