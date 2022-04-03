@@ -3,6 +3,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    background-color: aliceblue;
 }
 
 .nav-tabs a {
@@ -19,5 +23,6 @@
     .nav-tabs {
         display: flex;
         flex-direction: column;
+        position: sticky;
     }
 }
