@@ -1,0 +1,20 @@
+.nav-tabs {
+    font-size: 30px;
+}
+
+.nav-tabs a {
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.cart-icons {
+    font-size: 40px;
+}
+
+/* responsive */
+@media screen and (max-width:668px) {
+    .nav-tabs {
+        display: flex;
+        flex-direction: column;
+    }
+}
